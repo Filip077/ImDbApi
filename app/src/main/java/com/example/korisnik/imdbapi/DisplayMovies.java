@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,8 +39,8 @@ public class DisplayMovies extends AppCompatActivity {
         setContentView(R.layout.activity_display_movies);
         recyclerView = findViewById(R.id.recyler_view);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        recyclerView.setLayoutManager(new GridLayoutManager(DisplayMovies.this,2));
+        recyclerView.setAdapter(adapter);
         Bundle i = getIntent().getExtras();
         String movie = i.getString("movie");
 
